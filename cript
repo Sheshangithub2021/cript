@@ -1,0 +1,19 @@
+#!/bin/bash 
+echo -e "\t\e[4mNOTE:::THIS SIMPLE SCRIPT ONLY RUN FOR LOWERCASE ALPHABETS -'abcd'\e[0m(NOT FOR UPPERCASE ALPHABETS & NUMERIC VALUES)"
+echo "Enter '1' for encript and '2' decript:"  
+read a
+if [ $a -eq 1 ]
+then
+echo -e "\e[4mThe ouput file is ENCRIPT:\e[0m"
+echo "Name of the file for encript:"
+read b
+input1=$(tr [abcdefghijklmnopqrstuvwxyz :0123456789ABCDEFGHIJKLMNOP] < $b)
+echo "$input1" > encript
+elif [ $a -eq 2 ]
+then
+echo -e "\e[4mThe ouput file is DECRIPT\e[0m"
+echo "Name of the file for decript:"
+read c
+input2=$(tr [0123456789ABCDEFGHIJKLMNOP :abcdefghijklmnopqrstuvwxyz] < $c)
+echo "$input2" > decript
+fi
